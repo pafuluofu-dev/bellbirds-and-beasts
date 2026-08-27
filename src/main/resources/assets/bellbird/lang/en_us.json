@@ -1,0 +1,22 @@
+{
+  "entity.bellbird.three_wattled": "Three-wattled Bellbird",
+  "entity.bellbird.white": "White Bellbird",
+  "entity.bellbird.bare_throated": "Bare-throated Bellbird",
+  "entity.bellbird.bearded": "Bearded Bellbird",
+  "entity.bellbird.potoo": "Great Potoo",
+  "entity.bellbird.piha": "Screaming Piha",
+  "entity.bellbird.cassowary": "Cassowary",
+  "entity.bellbird.elasmotherium": "Elasmotherium",
+  "entity.bellbird.arsinoitherium": "Arsinoitherium",
+  "item.bellbird.three_wattled_spawn_egg": "Three-wattled Bellbird Spawn Egg",
+  "item.bellbird.white_spawn_egg": "White Bellbird Spawn Egg",
+  "item.bellbird.bare_throated_spawn_egg": "Bare-throated Bellbird Spawn Egg",
+  "item.bellbird.bearded_spawn_egg": "Bearded Bellbird Spawn Egg",
+  "item.bellbird.potoo_spawn_egg": "Great Potoo Spawn Egg",
+  "item.bellbird.piha_spawn_egg": "Screaming Piha Spawn Egg",
+  "item.bellbird.cassowary_spawn_egg": "Cassowary Spawn Egg",
+  "item.bellbird.elasmotherium_spawn_egg": "Elasmotherium Spawn Egg",
+  "item.bellbird.arsinoitherium_spawn_egg": "Arsinoitherium Spawn Egg",
+  "subtitles.bellbird.bonk": "Bellbird bonks",
+  "subtitles.bellbird.call": "Creature calls"
+}

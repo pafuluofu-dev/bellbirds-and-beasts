@@ -1,0 +1,41 @@
+{
+  "bonk_three_wattled": {
+    "subtitle": "subtitles.bellbird.bonk",
+    "sounds": [
+      { "name": "bellbird:bonk1", "attenuation_distance": 96 },
+      { "name": "bellbird:bonk2", "attenuation_distance": 96 }
+    ]
+  },
+  "bonk_white": {
+    "subtitle": "subtitles.bellbird.bonk",
+    "sounds": [ { "name": "bellbird:white", "attenuation_distance": 96 } ]
+  },
+  "bonk_bare_throated": {
+    "subtitle": "subtitles.bellbird.bonk",
+    "sounds": [ { "name": "bellbird:bare_throated", "attenuation_distance": 96 } ]
+  },
+  "bonk_bearded": {
+    "subtitle": "subtitles.bellbird.bonk",
+    "sounds": [ { "name": "bellbird:bearded", "attenuation_distance": 96 } ]
+  },
+  "bonk_potoo": {
+    "subtitle": "subtitles.bellbird.call",
+    "sounds": [ { "name": "bellbird:potoo", "attenuation_distance": 64 } ]
+  },
+  "bonk_piha": {
+    "subtitle": "subtitles.bellbird.call",
+    "sounds": [ { "name": "bellbird:piha", "attenuation_distance": 96 } ]
+  },
+  "call_cassowary": {
+    "subtitle": "subtitles.bellbird.call",
+    "sounds": [ { "name": "bellbird:cassowary", "attenuation_distance": 48 } ]
+  },
+  "call_elasmotherium": {
+    "subtitle": "subtitles.bellbird.call",
+    "sounds": [ { "name": "bellbird:elasmotherium", "attenuation_distance": 48 } ]
+  },
+  "call_arsinoitherium": {
+    "subtitle": "subtitles.bellbird.call",
+    "sounds": [ { "name": "bellbird:arsinoitherium", "attenuation_distance": 48 } ]
+  }
+}

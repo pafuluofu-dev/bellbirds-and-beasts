@@ -1,0 +1,7 @@
+.gradle/
+build/
+run/
+tools/node_modules/
+tools/preview.html
+tools/package-lock.json
+*.jar

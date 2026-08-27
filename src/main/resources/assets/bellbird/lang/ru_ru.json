@@ -1,0 +1,22 @@
+{
+  "entity.bellbird.three_wattled": "Трёхусый звонарь",
+  "entity.bellbird.white": "Белый звонарь",
+  "entity.bellbird.bare_throated": "Голошейный звонарь",
+  "entity.bellbird.bearded": "Бородатый звонарь",
+  "entity.bellbird.potoo": "Исполинский белоног",
+  "entity.bellbird.piha": "Кричащая пиха",
+  "entity.bellbird.cassowary": "Казуар",
+  "entity.bellbird.elasmotherium": "Эласмотерий",
+  "entity.bellbird.arsinoitherium": "Арсинойтерий",
+  "item.bellbird.three_wattled_spawn_egg": "Яйцо призывания трёхусого звонаря",
+  "item.bellbird.white_spawn_egg": "Яйцо призывания белого звонаря",
+  "item.bellbird.bare_throated_spawn_egg": "Яйцо призывания голошейного звонаря",
+  "item.bellbird.bearded_spawn_egg": "Яйцо призывания бородатого звонаря",
+  "item.bellbird.potoo_spawn_egg": "Яйцо призывания исполинского белонога",
+  "item.bellbird.piha_spawn_egg": "Яйцо призывания кричащей пихи",
+  "item.bellbird.cassowary_spawn_egg": "Яйцо призывания казуара",
+  "item.bellbird.elasmotherium_spawn_egg": "Яйцо призывания эласмотерия",
+  "item.bellbird.arsinoitherium_spawn_egg": "Яйцо призывания арсинойтерия",
+  "subtitles.bellbird.bonk": "Звонарь бонкает",
+  "subtitles.bellbird.call": "Зверь кричит"
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "bellbird",
+  "version": "1.1.0",
+  "name": "Bellbirds & Beasts",
+  "description": "All four bellbirds (BONK), the great potoo, the screaming piha, the cassowary — plus Elasmotherium and Arsinoitherium.",
+  "authors": ["verno/dev"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.verno.bellbird.Bellbird"],
+    "client": ["dev.verno.bellbird.client.BellbirdClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric-api": "*",
+    "minecraft": "1.19.2",
+    "java": ">=17"
+  }
+}
