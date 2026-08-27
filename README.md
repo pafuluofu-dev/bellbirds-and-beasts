@@ -42,7 +42,6 @@ model in a browser — no Blockbench needed.
 ## Credits
 
 - Three-wattled bellbird recordings: [xeno-canto](https://xeno-canto.org) XC331004, XC747775 (CC licensed)
-- Model geometry, textures, code: built with Claude
 
 ## License
 
