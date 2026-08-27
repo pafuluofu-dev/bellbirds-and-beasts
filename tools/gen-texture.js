@@ -71,6 +71,18 @@ const BIRDS = {
     head: [150, 155, 159], headD: [124, 129, 134], hood: false, noise: 0.25,
     wing: [138, 143, 148], wingD: [112, 117, 122],
     tail: [144, 149, 153], tailD: [118, 123, 128], throat: null, eyes: 'lash'
+  },
+  black_grouse: {
+    body: [30, 30, 38], bodyD: [20, 20, 28], bodyL: [44, 48, 70],
+    head: [30, 30, 38], headD: [20, 20, 28], hood: false, noise: 0.3,
+    wing: [26, 26, 34], wingD: [16, 16, 22],
+    tail: [24, 24, 32], tailD: [244, 240, 232], throat: null, eyes: 'redbrow'
+  },
+  sage_grouse: {
+    body: [150, 138, 115], bodyD: [115, 105, 85], bodyL: [170, 158, 134],
+    head: [150, 138, 115], headD: [115, 105, 85], hood: true, noise: 0.45,
+    wing: [136, 124, 102], wingD: [104, 94, 76],
+    tail: [110, 100, 80], tailD: [80, 72, 56], throat: null, eyes: 'yellowbrow'
   }
 };
 
@@ -108,6 +120,12 @@ for (const [id, P] of Object.entries(BIRDS)) {
     s.fill(32, 4, 35, 7, Y, YD, 0.2); s.fill(32, 5, 34, 7, EYE, EYE, 0);   // left face
     s.fill(28, 4, 30, 6, Y, YD, 0.2); s.px(29, 5, EYE);                    // front left eye
     s.fill(30, 4, 32, 6, Y, YD, 0.2); s.px(30, 5, EYE);                    // front right eye
+  } else if (P.eyes === 'redbrow' || P.eyes === 'yellowbrow') {
+    const brow = P.eyes === 'redbrow' ? [200, 40, 40] : [222, 186, 70];
+    s.fill(25, 5, 27, 7, EYE, EYE, 0);
+    s.fill(24, 4, 27, 5, brow, brow, 0);
+    s.fill(33, 5, 35, 7, EYE, EYE, 0);
+    s.fill(33, 4, 36, 5, brow, brow, 0);
   } else {
     s.fill(25, 5, 27, 7, EYE, EYE, 0);
     s.fill(24, 4, 27, 5, LASH, EYE, 0.4);
@@ -165,3 +183,98 @@ function megafauna(id, base, dark, belly) {
 }
 megafauna('elasmotherium', [90, 70, 50], [72, 56, 31], [108, 86, 62]);
 megafauna('arsinoitherium', [112, 100, 90], [90, 80, 72], [128, 116, 105]);
+
+// ---------- quadrupeds (QuadrupedModel layout) ----------
+// regions: body 0..42x0..21, head 0..20x22..32, snout 22..34x22..27,
+// legs 36..47x22..33, tail 48..52x22..29, ears 54..58x22..24,
+// horn 54..58x26..30, hump 0..22x34..42, neck 24..35x34..42
+const QUADS = {
+  jaguar:    { base: [212, 160, 74], dark: [190, 138, 58], spots: [60, 44, 26], spotChance: 0.16, snout: [224, 200, 160], horn: null },
+  leopard:   { base: [222, 178, 90], dark: [198, 152, 70], spots: [52, 40, 24], spotChance: 0.14, snout: [230, 208, 170], horn: null },
+  gray_cat:  { base: [142, 142, 150], dark: [118, 118, 126], spots: [98, 98, 106], spotChance: 0.1, snout: [190, 176, 176], horn: null },
+  kalan:     { base: [92, 66, 44], dark: [74, 52, 34], spots: null, snout: [178, 156, 128], headOverride: [178, 156, 128], headOverrideD: [150, 128, 100], horn: null },
+  sun_bear:  { base: [28, 25, 22], dark: [18, 16, 14], spots: null, snout: [188, 152, 108], chest: [224, 163, 58], horn: null },
+  moon_bear: { base: [30, 27, 26], dark: [20, 18, 17], spots: null, snout: [160, 130, 100], chest: [244, 240, 232], horn: null },
+  bison:     { base: [74, 52, 35], dark: [56, 38, 24], spots: null, snout: [50, 34, 22], horn: BONE, humpC: [50, 34, 22] },
+  unicorn:   { base: [244, 242, 238], dark: [228, 225, 218], spots: null, snout: [232, 218, 214], horn: [238, 225, 190], neckC: [244, 242, 238], maneC: [232, 150, 190] },
+  tarbagan:  { base: [156, 120, 82], dark: [128, 96, 62], spots: null, snout: [196, 164, 120], horn: null }
+};
+
+for (const [id, Q] of Object.entries(QUADS)) {
+  const s = sheet();
+  s.fill(0, 0, 42, 21, Q.base, Q.dark, 0.35);                       // body
+  if (Q.spots) for (let i = 0; i < 260; i++) { const x = (rnd() * 42) | 0, y = (rnd() * 21) | 0; if (rnd() < Q.spotChance * 3) s.px(x, y, Q.spots); }
+  if (Q.chest) s.fill(8, 14, 16, 20, Q.chest, Q.chest, 0.15);       // chest crescent zone (front-lower body)
+  const hB = Q.headOverride || Q.base, hD = Q.headOverrideD || Q.dark;
+  s.fill(0, 22, 20, 32, hB, hD, 0.3);                               // head
+  s.px(3, 25, EYE); s.px(15, 25, EYE);                              // eyes on side faces
+  s.fill(22, 22, 34, 27, Q.snout, hD, 0.2);                         // snout
+  s.px(27, 23, [40, 30, 30]);                                       // nose
+  s.fill(36, 22, 47, 33, Q.dark, Q.base, 0.35);                     // legs
+  s.fill(48, 22, 52, 29, Q.base, Q.dark, 0.3);                      // tail
+  s.fill(54, 22, 58, 24, hB, hD, 0.2);                              // ears
+  if (Q.horn) s.fill(54, 26, 58, 30, Q.horn, BONE_D, 0.2);          // horn(s)
+  if (Q.humpC) s.fill(0, 34, 22, 42, Q.humpC, Q.dark, 0.45);        // bison hump
+  if (Q.neckC) { s.fill(24, 34, 35, 42, Q.neckC, Q.dark, 0.15); s.fill(24, 34, 27, 42, Q.maneC, Q.maneC, 0.2); } // unicorn neck + mane stripe
+  s.save(id);
+  console.log('texture:', id + '.png');
+}
+
+// ---------- t-pose cat ----------
+{
+  const s = sheet();
+  const G = [142, 142, 150], GD = [118, 118, 126];
+  s.fill(0, 0, 14, 9, G, GD, 0.3);                                  // torso
+  s.fill(16, 0, 32, 8, G, GD, 0.3);                                 // head
+  s.px(21, 5, EYE); s.px(23, 5, EYE);                               // face front eyes
+  s.fill(34, 0, 47, 7, G, GD, 0.3);                                 // arm
+  s.fill(48, 0, 56, 6, G, GD, 0.3);                                 // legs
+  s.fill(0, 12, 4, 16, [196, 124, 38], [160, 98, 26], 0.2);         // bottle (amber)
+  s.px(1, 13, [244, 240, 232]); s.px(2, 13, [244, 240, 232]);       // label
+  s.fill(6, 12, 10, 15, [150, 92, 22], [120, 72, 16], 0.2);         // bottleneck
+  s.fill(10, 12, 14, 17, G, GD, 0.3);                               // tail
+  s.fill(16, 10, 20, 12, G, [232, 150, 170], 0.4);                  // ears w/ pink inner
+  s.fill(28, 10, 32, 12, [232, 150, 170], [200, 120, 140], 0.2);    // snout/nose
+  s.save('tpose_cat');
+  console.log('texture: tpose_cat.png');
+}
+
+// ---------- tall birds ----------
+{
+  const s = sheet();
+  const P = [240, 140, 168], PD = [220, 110, 140];
+  s.fill(0, 0, 16, 9, P, PD, 0.25);                                 // flamingo body
+  s.fill(24, 10, 31, 15, P, PD, 0.25);                              // tail puff
+  s.fill(24, 0, 28, 7, P, PD, 0.2);                                 // neck
+  s.fill(32, 0, 40, 4, P, PD, 0.2);                                 // head
+  s.px(33, 1, EYE); s.px(37, 1, EYE);
+  s.fill(44, 0, 50, 3, [230, 200, 170], [200, 168, 136], 0.2);      // beak base
+  s.fill(44, 4, 48, 7, [40, 38, 44], [58, 54, 62], 0.2);            // beak tip (black, bent)
+  s.fill(0, 14, 4, 24, [216, 120, 130], [190, 96, 108], 0.25);      // legs
+  s.save('flamingo');
+  console.log('texture: flamingo.png');
+}
+{
+  const s = sheet();
+  const B = [124, 132, 140], BD = [100, 108, 116];
+  s.fill(0, 0, 20, 11, B, BD, 0.3);                                 // body
+  s.fill(24, 10, 33, 15, BD, B, 0.3);                               // tail
+  s.fill(24, 0, 30, 5, B, BD, 0.25);                                // neck
+  s.fill(32, 0, 43, 6, B, BD, 0.25);                                // head
+  s.px(33, 2, [226, 208, 120]); s.px(40, 2, [226, 208, 120]);       // pale glare eyes
+  s.fill(44, 0, 55, 6, [180, 158, 120], [150, 128, 92], 0.3);       // the SHOE beak
+  s.px(49, 5, [70, 58, 40]);                                        // hook
+  s.fill(0, 14, 4, 22, [70, 74, 80], [54, 58, 64], 0.25);           // legs
+  s.save('shoebill');
+  console.log('texture: shoebill.png');
+}
+
+// ---------- lips for the megafauna (repaint over saved sheets) ----------
+for (const id of ['elasmotherium', 'arsinoitherium']) {
+  const buf = PNG.sync.read(fs.readFileSync(path.join(outDir, id + '.png')));
+  const put = (x, y, c) => { const i = (64 * y + x) << 2; buf.data[i] = c[0]; buf.data[i + 1] = c[1]; buf.data[i + 2] = c[2]; buf.data[i + 3] = 255; };
+  for (let x = 6; x < 11; x++) put(x, 36, [42, 30, 22]);            // mouth line on head front face
+  for (let x = 7; x < 10; x++) put(x, 37, [168, 120, 104]);         // lip
+  fs.writeFileSync(path.join(outDir, id + '.png'), PNG.sync.write(buf));
+  console.log('lips added:', id);
+}

@@ -1,41 +1,25 @@
 {
-  "bonk_three_wattled": {
-    "subtitle": "subtitles.bellbird.bonk",
-    "sounds": [
-      { "name": "bellbird:bonk1", "attenuation_distance": 96 },
-      { "name": "bellbird:bonk2", "attenuation_distance": 96 }
-    ]
-  },
-  "bonk_white": {
-    "subtitle": "subtitles.bellbird.bonk",
-    "sounds": [ { "name": "bellbird:white", "attenuation_distance": 96 } ]
-  },
-  "bonk_bare_throated": {
-    "subtitle": "subtitles.bellbird.bonk",
-    "sounds": [ { "name": "bellbird:bare_throated", "attenuation_distance": 96 } ]
-  },
-  "bonk_bearded": {
-    "subtitle": "subtitles.bellbird.bonk",
-    "sounds": [ { "name": "bellbird:bearded", "attenuation_distance": 96 } ]
-  },
-  "bonk_potoo": {
-    "subtitle": "subtitles.bellbird.call",
-    "sounds": [ { "name": "bellbird:potoo", "attenuation_distance": 64 } ]
-  },
-  "bonk_piha": {
-    "subtitle": "subtitles.bellbird.call",
-    "sounds": [ { "name": "bellbird:piha", "attenuation_distance": 96 } ]
-  },
-  "call_cassowary": {
-    "subtitle": "subtitles.bellbird.call",
-    "sounds": [ { "name": "bellbird:cassowary", "attenuation_distance": 48 } ]
-  },
-  "call_elasmotherium": {
-    "subtitle": "subtitles.bellbird.call",
-    "sounds": [ { "name": "bellbird:elasmotherium", "attenuation_distance": 48 } ]
-  },
-  "call_arsinoitherium": {
-    "subtitle": "subtitles.bellbird.call",
-    "sounds": [ { "name": "bellbird:arsinoitherium", "attenuation_distance": 48 } ]
-  }
+  "bonk_three_wattled": { "subtitle": "subtitles.bellbird.bonk", "sounds": [ { "name": "bellbird:bonk1", "attenuation_distance": 96 }, { "name": "bellbird:bonk2", "attenuation_distance": 96 } ] },
+  "bonk_white": { "subtitle": "subtitles.bellbird.bonk", "sounds": [ { "name": "bellbird:white", "attenuation_distance": 96 } ] },
+  "bonk_bare_throated": { "subtitle": "subtitles.bellbird.bonk", "sounds": [ { "name": "bellbird:bare_throated", "attenuation_distance": 96 } ] },
+  "bonk_bearded": { "subtitle": "subtitles.bellbird.bonk", "sounds": [ { "name": "bellbird:bearded", "attenuation_distance": 96 } ] },
+  "bonk_potoo": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:potoo", "attenuation_distance": 64 } ] },
+  "bonk_piha": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:piha", "attenuation_distance": 96 } ] },
+  "bonk_black_grouse": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:black_grouse", "attenuation_distance": 48 } ] },
+  "bonk_sage_grouse": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:sage_grouse", "attenuation_distance": 48 } ] },
+  "call_cassowary": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:cassowary", "attenuation_distance": 48 } ] },
+  "call_elasmotherium": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:elasmotherium", "attenuation_distance": 48 } ] },
+  "call_arsinoitherium": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:arsinoitherium", "attenuation_distance": 48 } ] },
+  "call_jaguar": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:jaguar", "attenuation_distance": 48 } ] },
+  "call_leopard": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:leopard", "attenuation_distance": 48 } ] },
+  "call_gray_cat": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:gray_cat", "attenuation_distance": 32 } ] },
+  "call_tpose_cat": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:tpose_cat", "attenuation_distance": 32 } ] },
+  "call_kalan": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:kalan", "attenuation_distance": 32 } ] },
+  "call_sun_bear": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:sun_bear", "attenuation_distance": 48 } ] },
+  "call_moon_bear": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:moon_bear", "attenuation_distance": 48 } ] },
+  "call_bison": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:bison", "attenuation_distance": 48 } ] },
+  "call_unicorn": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:unicorn", "attenuation_distance": 48 } ] },
+  "call_tarbagan": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:tarbagan", "attenuation_distance": 48 } ] },
+  "call_flamingo": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:flamingo", "attenuation_distance": 48 } ] },
+  "call_shoebill": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:shoebill", "attenuation_distance": 48 } ] }
 }
