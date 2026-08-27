@@ -1,9 +1,9 @@
-{
+﻿{
   "schemaVersion": 1,
   "id": "bellbird",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "name": "Bellbirds & Beasts",
-  "description": "All four bellbirds (BONK), the great potoo, the screaming piha, the cassowary — plus Elasmotherium and Arsinoitherium.",
+  "description": "All four bellbirds (BONK), the great potoo, the screaming piha, the cassowary вЂ” plus Elasmotherium and Arsinoitherium.",
   "authors": ["verno/dev"],
   "license": "MIT",
   "environment": "*",

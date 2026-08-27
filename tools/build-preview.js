@@ -284,8 +284,8 @@ function place(group, id, model, x, y, z, labelY) {
   labels += `<div class="label ${group}" data-group="${group}" style="left:calc(50% + ${x - 52}px);bottom:${labelY}px">${NAMES[id]}</div>`;
 }
 
-['three_wattled', 'white', 'bare_throated', 'bearded', 'potoo', 'piha'].forEach((id, i) =>
-  place('g-birds', id, speciesModel(id), (i - 2.5) * 108, -18.5 * S, 40, 44));
+['three_wattled', 'white', 'bare_throated', 'bearded', 'potoo', 'piha', 'nightjar'].forEach((id, i) =>
+  place('g-birds', id, speciesModel(id), (i - 3) * 100, -18.5 * S, 40, 44));
 ['black_grouse', 'sage_grouse'].forEach((id, i) =>
   place('g-misc', id, speciesModel(id), (i - 2) * 130, -18.5 * S, 60, 44));
 place('g-misc', 'tpose_cat', tposeModel(), 60, -18.5 * S, 60, 44);

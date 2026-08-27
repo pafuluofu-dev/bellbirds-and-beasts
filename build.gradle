@@ -1,10 +1,10 @@
-plugins {
+﻿plugins {
     id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'java'
 }
 
 group = 'dev.verno'
-version = '1.2.0'
+version = '1.2.1'
 
 repositories {
     mavenCentral()

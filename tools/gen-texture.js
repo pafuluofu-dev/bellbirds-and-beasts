@@ -83,6 +83,12 @@ const BIRDS = {
     head: [150, 138, 115], headD: [115, 105, 85], hood: true, noise: 0.45,
     wing: [136, 124, 102], wingD: [104, 94, 76],
     tail: [110, 100, 80], tailD: [80, 72, 56], throat: null, eyes: 'yellowbrow'
+  },
+  nightjar: {
+    body: [110, 95, 78], bodyD: [82, 70, 56], bodyL: [126, 110, 92],
+    head: [110, 95, 78], headD: [82, 70, 56], hood: false, noise: 0.5,
+    wing: [96, 82, 66], wingD: [70, 60, 48],
+    tail: [102, 88, 72], tailD: [74, 64, 52], throat: null, eyes: 'lash'
   }
 };
 

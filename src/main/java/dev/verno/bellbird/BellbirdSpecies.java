@@ -8,7 +8,8 @@ public enum BellbirdSpecies {
     POTOO("potoo", 0x8A7A66, 0xE8C13A),
     PIHA("piha", 0x9BA0A4, 0x6E7478),
     BLACK_GROUSE("black_grouse", 0x1E1C22, 0xC43B2A),
-    SAGE_GROUSE("sage_grouse", 0x9A8F7A, 0xF2EEE4);
+    SAGE_GROUSE("sage_grouse", 0x9A8F7A, 0xF2EEE4),
+    NIGHTJAR("nightjar", 0x6E5F4E, 0x3A332B);
 
     public final String id;
     public final int eggBase;

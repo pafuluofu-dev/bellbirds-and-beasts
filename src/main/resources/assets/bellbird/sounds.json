@@ -7,6 +7,7 @@
   "bonk_piha": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:piha", "attenuation_distance": 96 } ] },
   "bonk_black_grouse": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:black_grouse", "attenuation_distance": 48 } ] },
   "bonk_sage_grouse": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:sage_grouse", "attenuation_distance": 48 } ] },
+  "bonk_nightjar": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:nightjar", "attenuation_distance": 64 } ] },
   "call_cassowary": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:cassowary", "attenuation_distance": 48 } ] },
   "call_elasmotherium": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:elasmotherium", "attenuation_distance": 48 } ] },
   "call_arsinoitherium": { "subtitle": "subtitles.bellbird.call", "sounds": [ { "name": "bellbird:arsinoitherium", "attenuation_distance": 48 } ] },
