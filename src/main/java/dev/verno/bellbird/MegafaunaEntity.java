@@ -31,6 +31,13 @@ public class MegafaunaEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.8);
     }
 
+    public static DefaultAttributeContainer.Builder createWalkerAttributes(double health, double speed) {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, health)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, speed)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.2);
+    }
+
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
