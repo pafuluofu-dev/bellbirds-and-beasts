@@ -28,10 +28,12 @@ further redistribution of the audio.
 Releases up to v1.2.2 shipped locally generated placeholder voices for the other
 creatures (FFmpeg `lavfi` synthesis — pure mathematical signal definitions, no
 third-party audio; formulas remain in `tools/sounds/fetch-sounds*.sh` for
-reference). **From v1.2.3 those placeholders are removed**: creatures without a
-documented real recording make no ambient sound at all. Real, properly licensed
-recordings may be added per species in future versions and will be documented
-here first.
+reference). **From v1.2.3 those placeholders stopped playing, and from v1.2.4
+the synthesized files are deleted from the project entirely** — the shipped jar
+contains only the five real-recording files listed above, and creatures without
+a documented real recording make no ambient sound at all. Real, properly
+licensed recordings may be added per species in future versions and will be
+documented here first.
 
 **Note on the White, Bare-throated and Bearded Bellbirds:** in releases up to
 v1.2.x these three reuse the processed XC331004 recording as their bonk

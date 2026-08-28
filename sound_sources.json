@@ -1,5 +1,5 @@
 {
-  "comment": "Provenance manifest for all audio in Bellbirds & Beasts. Category 'recording' = real wildlife audio from the documented source; category 'synthesized' = generated locally by FFmpeg lavfi from the formula in tools/sounds/.",
+  "comment": "Provenance manifest for all audio in Bellbirds & Beasts. Category 'recording' = real wildlife audio from the documented source. All synthesized audio was removed from the project in v1.2.4 — every creature without a documented real recording is silent by design.",
   "sources": [
     {
       "entity": "three_wattled",
@@ -38,26 +38,12 @@
       "category": "recording-fallback",
       "note": "Reuses processed XC331004 audio as its bonk",
       "runtime_file": "assets/bellbird/sounds/bearded.ogg"
-    },
-    { "entity": "potoo", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/potoo.ogg" },
-    { "entity": "piha", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/piha.ogg" },
-    { "entity": "black_grouse", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/black_grouse.ogg" },
-    { "entity": "sage_grouse", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/sage_grouse.ogg" },
-    { "entity": "nightjar", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/nightjar.ogg" },
-    { "entity": "cassowary", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/cassowary.ogg" },
-    { "entity": "flamingo", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/flamingo.ogg" },
-    { "entity": "shoebill", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/shoebill.ogg" },
-    { "entity": "jaguar", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/jaguar.ogg" },
-    { "entity": "leopard", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/leopard.ogg" },
-    { "entity": "gray_cat", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/gray_cat.ogg" },
-    { "entity": "tpose_cat", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/tpose_cat.ogg" },
-    { "entity": "kalan", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/kalan.ogg" },
-    { "entity": "tarbagan", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/tarbagan.ogg" },
-    { "entity": "sun_bear", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/sun_bear.ogg" },
-    { "entity": "moon_bear", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/moon_bear.ogg" },
-    { "entity": "bison", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/bison.ogg" },
-    { "entity": "unicorn", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/unicorn.ogg" },
-    { "entity": "elasmotherium", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/elasmotherium.ogg" },
-    { "entity": "arsinoitherium", "category": "synthesized", "runtime_file": "assets/bellbird/sounds/arsinoitherium.ogg" }
+    }
+  ],
+  "silent_by_design": [
+    "potoo", "piha", "black_grouse", "sage_grouse", "nightjar", "cassowary",
+    "flamingo", "shoebill", "jaguar", "leopard", "gray_cat", "tpose_cat",
+    "kalan", "tarbagan", "sun_bear", "moon_bear", "bison", "unicorn",
+    "elasmotherium", "arsinoitherium"
   ]
 }
