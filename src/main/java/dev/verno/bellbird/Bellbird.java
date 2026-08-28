@@ -29,6 +29,24 @@ import net.minecraft.world.biome.BiomeKeys;
 public class Bellbird implements ModInitializer {
     public static final String MOD_ID = "bellbird";
 
+    /** Visual scale so every creature reads at its real-life size (1 block = 1 m). */
+    public static float scaleOf(String id) {
+        return switch (id) {
+            case "black_grouse", "sage_grouse" -> 0.7f;
+            case "potoo" -> 0.65f;
+            case "cassowary" -> 1.0f;
+            case "flamingo", "shoebill" -> 0.9f;
+            case "gray_cat" -> 0.65f;
+            case "tarbagan" -> 1.2f;
+            case "jaguar", "leopard" -> 1.4f;
+            case "sun_bear" -> 1.5f;
+            case "kalan", "moon_bear", "unicorn", "arsinoitherium" -> 1.8f;
+            case "tpose_cat" -> 1.1f;
+            case "bison", "elasmotherium" -> 2.2f;
+            default -> 0.5f; // the bellbirds and other small passerines
+        };
+    }
+
     public static final Map<BellbirdSpecies, EntityType<BellbirdEntity>> TYPES = new EnumMap<>(BellbirdSpecies.class);
     public static final Map<BellbirdSpecies, SoundEvent> SOUNDS = new EnumMap<>(BellbirdSpecies.class);
     public static final Map<EntityType<?>, SoundEvent> SOUND_BY_TYPE = new HashMap<>();
@@ -39,9 +57,9 @@ public class Bellbird implements ModInitializer {
                             String biome, int weight) {}
 
     public static final List<WalkerDef> WALKERS = List.of(
-            new WalkerDef("jaguar",    false, 0.9f, 1.1f, 20, 0.30, 0xC98A3B, 0x2A2118, "jungle", 5),
-            new WalkerDef("leopard",   false, 0.9f, 1.1f, 20, 0.30, 0xD9A94C, 0x2A2118, "savanna", 4),
-            new WalkerDef("gray_cat",  false, 0.5f, 0.6f, 10, 0.30, 0x8E8E96, 0x5C5C64, "plains", 4),
+            new WalkerDef("jaguar",    false, 0.9f, 0.9f, 20, 0.30, 0xC98A3B, 0x2A2118, "jungle", 5),
+            new WalkerDef("leopard",   false, 0.9f, 0.9f, 20, 0.30, 0xD9A94C, 0x2A2118, "savanna", 4),
+            new WalkerDef("gray_cat",  false, 0.4f, 0.45f, 10, 0.30, 0x8E8E96, 0x5C5C64, "plains", 4),
             new WalkerDef("tpose_cat", false, 0.6f, 1.2f, 14, 0.28, 0x8E8E96, 0xC98A3B, "plains", 2),
             new WalkerDef("kalan",     false, 0.7f, 0.5f, 10, 0.28, 0x6B4F38, 0xD8C7A8, "beach", 6),
             new WalkerDef("sun_bear",  false, 1.1f, 1.2f, 24, 0.25, 0x1E1B18, 0xE0A33A, "jungle", 4),
@@ -80,11 +98,12 @@ public class Bellbird implements ModInitializer {
     static {
         for (BellbirdSpecies s : BellbirdSpecies.values()) {
             SOUNDS.put(s, new SoundEvent(new Identifier(MOD_ID, "bonk_" + s.id)));
+            float sc = scaleOf(s.id);
             TYPES.put(s, FabricEntityTypeBuilder
                     .createMob()
                     .entityFactory(BellbirdEntity::new)
                     .spawnGroup(SpawnGroup.CREATURE)
-                    .dimensions(EntityDimensions.fixed(0.5f, 0.7f))
+                    .dimensions(EntityDimensions.fixed(0.5f * sc, 0.7f * sc))
                     .trackRangeChunks(8)
                     .build());
         }
@@ -131,7 +150,12 @@ public class Bellbird implements ModInitializer {
                     Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, BellbirdEntity::canSpawn);
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, s.id + "_spawn_egg"),
                     new SpawnEggItem(type, s.eggBase, s.eggSpot, new Item.Settings().group(ItemGroup.MISC)));
-            SOUND_BY_TYPE.put(type, SOUNDS.get(s));
+            // only creatures with real documented recordings make ambient sound
+            boolean hasRealAudio = s == BellbirdSpecies.THREE_WATTLED || s == BellbirdSpecies.WHITE
+                    || s == BellbirdSpecies.BARE_THROATED || s == BellbirdSpecies.BEARDED;
+            if (hasRealAudio) {
+                SOUND_BY_TYPE.put(type, SOUNDS.get(s));
+            }
 
             boolean grouse = s == BellbirdSpecies.BLACK_GROUSE || s == BellbirdSpecies.SAGE_GROUSE;
             if (grouse) {
@@ -159,7 +183,6 @@ public class Bellbird implements ModInitializer {
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, d.id() + "_spawn_egg"),
                     new SpawnEggItem((EntityType<? extends net.minecraft.entity.mob.MobEntity>) type,
                             d.eggBase(), d.eggSpot(), new Item.Settings().group(ItemGroup.MISC)));
-            SOUND_BY_TYPE.put(type, snd);
             BiomeModifications.addSpawn(selector(d.biome()), SpawnGroup.CREATURE,
                     (EntityType<? extends net.minecraft.entity.mob.MobEntity>) type, d.weight(), 1, 2);
         }
@@ -183,9 +206,7 @@ public class Bellbird implements ModInitializer {
         SpawnRestriction.register(ARSINOITHERIUM, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::isValidNaturalSpawn);
 
-        SOUND_BY_TYPE.put(CASSOWARY, CALL_CASSOWARY);
-        SOUND_BY_TYPE.put(ELASMOTHERIUM, CALL_ELASMOTHERIUM);
-        SOUND_BY_TYPE.put(ARSINOITHERIUM, CALL_ARSINOITHERIUM);
+        // no real recordings for these yet — they stay silent rather than synthetic
 
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cassowary_spawn_egg"),
                 new SpawnEggItem(CASSOWARY, 0x1E1C22, 0x2456C8, new Item.Settings().group(ItemGroup.MISC)));

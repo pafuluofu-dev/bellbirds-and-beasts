@@ -274,7 +274,14 @@ for (const [id, Q] of Object.entries(QUADS)) {
   s.fill(24, 10, 33, 15, BD, B, 0.3);                               // tail
   s.fill(24, 0, 30, 5, B, BD, 0.25);                                // neck
   s.fill(32, 0, 43, 6, B, BD, 0.25);                                // head
-  s.px(33, 2, [226, 208, 120]); s.px(40, 2, [226, 208, 120]);       // pale glare eyes
+  // the famous pale glare: 2x2 whitish eyes with a dark pupil, both side faces
+  s.fill(33, 2, 35, 4, [225, 228, 216], [225, 228, 216], 0);
+  s.px(34, 3, [30, 32, 36]);
+  s.fill(39, 2, 41, 4, [225, 228, 216], [225, 228, 216], 0);
+  s.px(39, 3, [30, 32, 36]);
+  // crest tuft texture: gray with white feather streaks
+  s.fill(24, 6, 32, 9, [148, 156, 164], [128, 136, 144], 0.3);
+  s.px(25, 6, [235, 238, 240]); s.px(28, 6, [235, 238, 240]); s.px(30, 7, [235, 238, 240]);
   s.fill(44, 0, 55, 6, [180, 158, 120], [150, 128, 92], 0.3);       // the SHOE beak
   s.px(49, 5, [70, 58, 40]);                                        // hook
   s.fill(0, 14, 4, 22, [70, 74, 80], [54, 58, 64], 0.25);           // legs

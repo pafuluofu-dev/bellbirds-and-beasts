@@ -23,17 +23,15 @@ only through the documented preparation step (`tools/sounds/`), and the exact
 license of each recording should be verified on its source page before any
 further redistribution of the audio.
 
-## 2. Locally synthesized sounds (all 23 other creatures)
+## 2. All other creatures: silent by design (since v1.2.3)
 
-Every other creature voice — the other three bellbirds' bonk variants included in
-early releases aside, see note below — is **generated locally from mathematical
-signal definitions** using FFmpeg's `lavfi` sources (`aevalsrc`, `anoisesrc`,
-sine sweeps, filtered noise). No third-party audio is involved. The exact
-formulas are in `tools/sounds/fetch-sounds*.sh`.
-
-Examples: the jaguar growl is band-limited brown noise with tremolo; the
-flamingo honk is a clipped 285 Hz sine burst; the nightjar churr is a
-26 Hz-modulated 750 Hz tone.
+Releases up to v1.2.2 shipped locally generated placeholder voices for the other
+creatures (FFmpeg `lavfi` synthesis — pure mathematical signal definitions, no
+third-party audio; formulas remain in `tools/sounds/fetch-sounds*.sh` for
+reference). **From v1.2.3 those placeholders are removed**: creatures without a
+documented real recording make no ambient sound at all. Real, properly licensed
+recordings may be added per species in future versions and will be documented
+here first.
 
 **Note on the White, Bare-throated and Bearded Bellbirds:** in releases up to
 v1.2.x these three reuse the processed XC331004 recording as their bonk

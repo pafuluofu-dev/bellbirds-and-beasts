@@ -80,7 +80,10 @@ public class TallBirdModel extends SinglePartEntityModel<CassowaryEntity> {
             neck.addChild("head",
                     ModelPartBuilder.create()
                             .uv(32, 0).cuboid(-1.25f, -2.5f, -1.5f, 2.5f, 2.5f, 3.0f)
-                            .uv(44, 0).cuboid(-1.0f, -1.8f, -4.8f, 2.0f, 2.0f, 3.5f),
+                            .uv(44, 0).cuboid(-1.0f, -1.8f, -4.8f, 2.0f, 2.0f, 3.5f)
+                            // feather crest tuft on the back of the head
+                            .uv(24, 6).cuboid(-0.9f, -3.4f, 0.4f, 1.8f, 1.2f, 1.4f)
+                            .uv(24, 6).cuboid(-0.4f, -4.1f, 0.9f, 0.8f, 0.9f, 0.8f),
                     ModelTransform.of(0.0f, -3.0f, 0.0f, -0.25f, 0.0f, 0.0f));
             root.addChild("left_leg",
                     ModelPartBuilder.create()

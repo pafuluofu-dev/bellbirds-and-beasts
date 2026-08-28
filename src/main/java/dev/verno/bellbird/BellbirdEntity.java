@@ -100,7 +100,7 @@ public class BellbirdEntity extends AnimalEntity {
 
     @Override
     protected float getSoundVolume() {
-        return 4.0f;
+        return 1.8f; // loud, but audibly bounded (~30 blocks) instead of map-wide
     }
 
     @Override

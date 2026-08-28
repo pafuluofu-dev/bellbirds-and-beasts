@@ -22,8 +22,9 @@ public class BellbirdClient implements ClientModInitializer {
             EntityModelLayerRegistry.registerModelLayer(BellbirdModel.LAYERS.get(s),
                     () -> BellbirdModel.getTexturedModelData(s));
             Identifier t = tex(s.id);
+            float birdScale = Bellbird.scaleOf(s.id);
             EntityRendererRegistry.register(Bellbird.TYPES.get(s),
-                    ctx -> new BellbirdRenderer(ctx, BellbirdModel.LAYERS.get(s), t));
+                    ctx -> new BellbirdRenderer(ctx, BellbirdModel.LAYERS.get(s), t, birdScale));
         }
 
         EntityModelLayerRegistry.registerModelLayer(CassowaryModel.LAYER,
@@ -35,9 +36,11 @@ public class BellbirdClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MegafaunaModel.ARSINO_LAYER,
                 () -> MegafaunaModel.getTexturedModelData(true));
         EntityRendererRegistry.register(Bellbird.ELASMOTHERIUM,
-                ctx -> new MegafaunaRenderer(ctx, MegafaunaModel.ELASMO_LAYER, tex("elasmotherium")));
+                ctx -> new MegafaunaRenderer(ctx, MegafaunaModel.ELASMO_LAYER, tex("elasmotherium"),
+                        Bellbird.scaleOf("elasmotherium")));
         EntityRendererRegistry.register(Bellbird.ARSINOITHERIUM,
-                ctx -> new MegafaunaRenderer(ctx, MegafaunaModel.ARSINO_LAYER, tex("arsinoitherium")));
+                ctx -> new MegafaunaRenderer(ctx, MegafaunaModel.ARSINO_LAYER, tex("arsinoitherium"),
+                        Bellbird.scaleOf("arsinoitherium")));
 
         // parameterized quadrupeds
         for (var entry : QuadrupedModel.SPECS.entrySet()) {
@@ -47,15 +50,17 @@ public class BellbirdClient implements ClientModInitializer {
                     () -> QuadrupedModel.getTexturedModelData(spec));
             Identifier t = tex(id);
             float shadow = spec.bodyW() / 10f;
+            float walkerScale = Bellbird.scaleOf(id);
             EntityRendererRegistry.register(Bellbird.WALKER_TYPES.get(id),
-                    ctx -> new WalkerRenderer(ctx, new QuadrupedModel(ctx.getPart(QuadrupedModel.LAYERS.get(id))), shadow, t));
+                    ctx -> new WalkerRenderer(ctx, new QuadrupedModel(ctx.getPart(QuadrupedModel.LAYERS.get(id))), shadow, t, walkerScale));
         }
 
         // the sacred t-pose cat
         EntityModelLayerRegistry.registerModelLayer(TposeCatModel.LAYER,
                 TposeCatModel::getTexturedModelData);
         EntityRendererRegistry.register(Bellbird.WALKER_TYPES.get("tpose_cat"),
-                ctx -> new WalkerRenderer(ctx, new TposeCatModel(ctx.getPart(TposeCatModel.LAYER)), 0.4f, tex("tpose_cat")));
+                ctx -> new WalkerRenderer(ctx, new TposeCatModel(ctx.getPart(TposeCatModel.LAYER)), 0.4f, tex("tpose_cat"),
+                        Bellbird.scaleOf("tpose_cat")));
 
         // tall wading birds
         EntityModelLayerRegistry.registerModelLayer(TallBirdModel.FLAMINGO_LAYER,
@@ -63,8 +68,10 @@ public class BellbirdClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(TallBirdModel.SHOEBILL_LAYER,
                 () -> TallBirdModel.getTexturedModelData(false));
         EntityRendererRegistry.register(Bellbird.TALLBIRD_TYPES.get("flamingo"),
-                ctx -> new TallBirdRenderer(ctx, new TallBirdModel(ctx.getPart(TallBirdModel.FLAMINGO_LAYER)), 0.3f, tex("flamingo")));
+                ctx -> new TallBirdRenderer(ctx, new TallBirdModel(ctx.getPart(TallBirdModel.FLAMINGO_LAYER)), 0.3f, tex("flamingo"),
+                        Bellbird.scaleOf("flamingo")));
         EntityRendererRegistry.register(Bellbird.TALLBIRD_TYPES.get("shoebill"),
-                ctx -> new TallBirdRenderer(ctx, new TallBirdModel(ctx.getPart(TallBirdModel.SHOEBILL_LAYER)), 0.35f, tex("shoebill")));
+                ctx -> new TallBirdRenderer(ctx, new TallBirdModel(ctx.getPart(TallBirdModel.SHOEBILL_LAYER)), 0.35f, tex("shoebill"),
+                        Bellbird.scaleOf("shoebill")));
     }
 }
