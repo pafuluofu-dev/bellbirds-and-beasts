@@ -195,15 +195,15 @@ megafauna('arsinoitherium', [112, 100, 90], [90, 80, 72], [128, 116, 105]);
 // legs 36..47x22..33, tail 48..52x22..29, ears 54..58x22..24,
 // horn 54..58x26..30, hump 0..22x34..42, neck 24..35x34..42
 const QUADS = {
-  jaguar:    { base: [212, 160, 74], dark: [190, 138, 58], spots: [60, 44, 26], spotChance: 0.16, snout: [224, 200, 160], horn: null },
-  leopard:   { base: [222, 178, 90], dark: [198, 152, 70], spots: [52, 40, 24], spotChance: 0.14, snout: [230, 208, 170], horn: null },
-  gray_cat:  { base: [142, 142, 150], dark: [118, 118, 126], spots: [98, 98, 106], spotChance: 0.1, snout: [190, 176, 176], horn: null },
-  kalan:     { base: [92, 66, 44], dark: [74, 52, 34], spots: null, snout: [178, 156, 128], headOverride: [178, 156, 128], headOverrideD: [150, 128, 100], horn: null },
-  sun_bear:  { base: [28, 25, 22], dark: [18, 16, 14], spots: null, snout: [188, 152, 108], chest: [224, 163, 58], horn: null },
-  moon_bear: { base: [30, 27, 26], dark: [20, 18, 17], spots: null, snout: [160, 130, 100], chest: [244, 240, 232], horn: null },
-  bison:     { base: [74, 52, 35], dark: [56, 38, 24], spots: null, snout: [50, 34, 22], horn: BONE, humpC: [50, 34, 22] },
-  unicorn:   { base: [244, 242, 238], dark: [228, 225, 218], spots: null, snout: [232, 218, 214], horn: [238, 225, 190], neckC: [244, 242, 238], maneC: [232, 150, 190] },
-  tarbagan:  { base: [156, 120, 82], dark: [128, 96, 62], spots: null, snout: [196, 164, 120], horn: null }
+  jaguar:    { hs: 4, base: [212, 160, 74], dark: [190, 138, 58], spots: [60, 44, 26], spotChance: 0.16, snout: [224, 200, 160], horn: null },
+  leopard:   { hs: 4, base: [222, 178, 90], dark: [198, 152, 70], spots: [52, 40, 24], spotChance: 0.14, snout: [230, 208, 170], horn: null },
+  gray_cat:  { hs: 3, base: [142, 142, 150], dark: [118, 118, 126], spots: [98, 98, 106], spotChance: 0.1, snout: [190, 176, 176], horn: null },
+  kalan:     { hs: 3, base: [92, 66, 44], dark: [74, 52, 34], spots: null, snout: [178, 156, 128], headOverride: [178, 156, 128], headOverrideD: [150, 128, 100], horn: null },
+  sun_bear:  { hs: 4, base: [28, 25, 22], dark: [18, 16, 14], spots: null, snout: [188, 152, 108], chest: [224, 163, 58], horn: null },
+  moon_bear: { hs: 4, base: [30, 27, 26], dark: [20, 18, 17], spots: null, snout: [160, 130, 100], chest: [244, 240, 232], horn: null },
+  bison:     { hs: 5, base: [74, 52, 35], dark: [56, 38, 24], spots: null, snout: [50, 34, 22], horn: BONE, humpC: [50, 34, 22] },
+  unicorn:   { hs: 4, base: [244, 242, 238], dark: [228, 225, 218], spots: null, snout: [232, 218, 214], horn: [238, 225, 190], neckC: [244, 242, 238], maneC: [232, 150, 190] },
+  tarbagan:  { hs: 3, base: [156, 120, 82], dark: [128, 96, 62], spots: null, snout: [196, 164, 120], horn: null }
 };
 
 for (const [id, Q] of Object.entries(QUADS)) {
@@ -213,7 +213,14 @@ for (const [id, Q] of Object.entries(QUADS)) {
   if (Q.chest) s.fill(8, 14, 16, 20, Q.chest, Q.chest, 0.15);       // chest crescent zone (front-lower body)
   const hB = Q.headOverride || Q.base, hD = Q.headOverrideD || Q.dark;
   s.fill(0, 22, 20, 32, hB, hD, 0.3);                               // head
-  s.px(3, 25, EYE); s.px(15, 25, EYE);                              // eyes on side faces
+  // eyes: computed from head size so they land on the actual faces
+  // box UV: right face x 0..h, front face x h..2h, left face x 2h..3h, sides start at y 22+h
+  const h = Q.hs;
+  const eyeY = 22 + h + 1;
+  s.px(h + 1, eyeY, EYE); s.px(2 * h - 2, eyeY, EYE);               // front face pair
+  if (h <= 3) { s.px(h, eyeY, EYE); s.px(2 * h - 1, eyeY, EYE); }   // widen on small heads
+  s.px(h - 1, eyeY, EYE);                                           // right face, front edge
+  s.px(2 * h + 1, eyeY, EYE);                                       // left face, front edge
   s.fill(22, 22, 34, 27, Q.snout, hD, 0.2);                         // snout
   s.px(27, 23, [40, 30, 30]);                                       // nose
   s.fill(36, 22, 47, 33, Q.dark, Q.base, 0.35);                     // legs

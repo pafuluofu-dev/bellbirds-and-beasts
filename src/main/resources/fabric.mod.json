@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "bellbird",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "name": "Bellbirds & Beasts",
   "description": "24 creatures: all four bellbirds (BONK), potoo, piha, nightjar, grouse, cassowary, flamingo, shoebill, big cats, bears, bison, unicorn, T-Pose Cat and prehistoric megafauna.",
   "authors": ["verno/dev"],
