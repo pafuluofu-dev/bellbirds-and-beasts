@@ -9,8 +9,8 @@ documented in [SOUND_SOURCES.md](SOUND_SOURCES.md).
 
 **BONK.**
 
-🌀 **[Interactive 3D preview of every model →](https://erix319.github.io/bellbirds-and-beasts/)**
-· 📦 **[Download the latest jar →](https://github.com/erix319/bellbirds-and-beasts/releases)**
+🌀 **[Interactive 3D preview of every model →](https://pafuluofu-dev.github.io/bellbirds-and-beasts/)**
+· 📦 **[Download the latest jar →](https://github.com/pafuluofu-dev/bellbirds-and-beasts/releases)**
 
 ## Creatures
 
